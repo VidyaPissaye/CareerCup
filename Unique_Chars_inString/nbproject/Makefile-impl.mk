@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=unique_chars_instring
+PROJECTNAME=Unique_Chars_inString
 
 # Active Configuration
 DEFAULTCONF=Debug

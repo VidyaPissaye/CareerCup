@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=compress_string
+PROJECTNAME=Compress_String
 
 # Active Configuration
 DEFAULTCONF=Debug
