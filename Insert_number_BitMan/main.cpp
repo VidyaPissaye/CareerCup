@@ -26,11 +26,11 @@ int setbit(int num, int i) {
 }
 
 int clearbit(int num, int i) {
-    return(num & (~(1 << 1)));
+    return(num & (~(1 << i)));
 }
 
 int clearMSB_to_i(int num, int i) {
-    int mask = (1 << 1) - 1;
+    int mask = (1 << i) - 1;
     return (num & mask);
 }
 

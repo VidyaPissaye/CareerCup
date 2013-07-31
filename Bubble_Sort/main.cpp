@@ -14,13 +14,15 @@ using namespace std;
  *  Bubble Sort
  */
 
+#define max 10
+
 void swap(int &x, int &y) {
     int temp = x;
     x = y;
     y = temp;
 }
 
-void bubble_sort(int n, int (&array)[10]) {
+void bubble_sort(int n, int (&array)[max]) {
     for(int i=0; i < n; i++) {
         for(int j=0; j < (n-i-1); j++) {
             if(array[j] > array[j+1]) {
@@ -32,7 +34,7 @@ void bubble_sort(int n, int (&array)[10]) {
 
 int main(int argc, char** argv) {
 
-    int arr[10] = {5, 7, 8, 3, 1, 4, 12, 9, 0, 6};
+    int arr[max] = {5, 7, 8, 3, 1, 4, 12, 9, 0, 6};
     int length = sizeof(arr)/sizeof(int);
     bubble_sort(length, arr);
     

@@ -48,21 +48,31 @@ int find_magic_index_distinct(int array[], int low, int high) {
     }
 }
 
-int min_element(int x, int y) {
+int min(int x, int y) {
     if(x < y)
         return x;
     else
         return y;
 }
 
+
+int max(int x, int y) {
+    if(x > y)
+        return x;
+    else
+        return y;
+}
+
 int find_magic_index(int array[], int low, int high) {
+    
+
     if(low > high) {
         return -1;
     }
     
     int mid = (low+high)/2;
     
-    if(array[mid] = mid) {
+    if(array[mid] == mid) {
         return mid;
     }
     
@@ -72,9 +82,11 @@ int find_magic_index(int array[], int low, int high) {
     if(left >= 0) 
         return left;
     
-    int right = find_magic_index(array, mid+1, high);
-    if(right >= 0)
-        return right;
+    int right_low = max(mid+1, array[mid]);
+    
+    int right = find_magic_index(array, right_low, high);
+
+    return right;
 }
 
 int main(int argc, char** argv) {
@@ -82,8 +94,8 @@ int main(int argc, char** argv) {
     //int arr[11] = {-40, -20, -1, 1, 2, 3, 5, 7, 9, 12, 13};
     int array[11] = {-10, -5, 2, 2, 3, 4, 5, 7, 9, 12, 13};
     
-   // int magic_index = find_magic_index_distinct(arr, 0, 10);
-   // cout << "The magic index with distinct elements in array is: " << magic_index << endl;
+    //int magic_index = find_magic_index_distinct(arr, 0, 10);
+    //cout << "The magic index with distinct elements in array is: " << magic_index << endl;
     
     int magic_idx = find_magic_index(array, 0, 10);
     cout << "The magic index is: " << magic_idx;

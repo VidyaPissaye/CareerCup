@@ -16,16 +16,22 @@ using namespace std;
  *  how many possible ways the child can run up the stairs.
  */
 
-int staircase(int steps) {
+#define max 10
+
+int staircase(int steps, int (&stairs)[max]) {
     
-    int stairs[100] = {0};
-    
-    stairs[1] = 1;
-    stairs[2] = 2;
-    stairs[3] = 4;
-    
-    for(int i=4; i <= steps; i++) {
-        stairs[i] = stairs[i-1] + stairs[i-2] + stairs[i-3];
+    if(steps < 0) {
+        return 0;
+    }
+    else if(steps == 0) {
+        return 1;
+    }
+    else if(stairs[steps] > -1) {
+        return stairs[steps];
+    }
+    else {
+        
+        stairs[steps] = staircase(steps-1, stairs) + staircase(steps-2, stairs) + staircase(steps-3, stairs);
     }
     
     return stairs[steps];
@@ -33,7 +39,9 @@ int staircase(int steps) {
 
 int main(int argc, char** argv) {
 
-    int possible_ways = staircase(5);
+    int stair_array[max] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+    
+    int possible_ways = staircase(5, stair_array);
     
     cout << "Possible to climb the steps is " << possible_ways;
 }
