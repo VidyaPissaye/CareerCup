@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=queue_using_2stacks
+PROJECTNAME=Queue_using_2Stacks
 
 # Active Configuration
 DEFAULTCONF=Debug

@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=sorted_array_string_search
+PROJECTNAME=Sorted_array_String_Search
 
 # Active Configuration
 DEFAULTCONF=Debug

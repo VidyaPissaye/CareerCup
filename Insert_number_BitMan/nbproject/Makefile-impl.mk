@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=insert_number_bitman
+PROJECTNAME=Insert_number_BitMan
 
 # Active Configuration
 DEFAULTCONF=Debug

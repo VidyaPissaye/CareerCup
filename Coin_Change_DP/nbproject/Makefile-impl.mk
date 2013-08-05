@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=coin_change_dp
+PROJECTNAME=Coin_Change_DP
 
 # Active Configuration
 DEFAULTCONF=Debug

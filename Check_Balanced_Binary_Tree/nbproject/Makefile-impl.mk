@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=check_balanced_binary_tree
+PROJECTNAME=Check_Balanced_Binary_Tree
 
 # Active Configuration
 DEFAULTCONF=Debug

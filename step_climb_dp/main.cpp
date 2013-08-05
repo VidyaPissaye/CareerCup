@@ -29,8 +29,7 @@ int staircase(int steps, int (&stairs)[max]) {
     else if(stairs[steps] > -1) {
         return stairs[steps];
     }
-    else {
-        
+    else {       
         stairs[steps] = staircase(steps-1, stairs) + staircase(steps-2, stairs) + staircase(steps-3, stairs);
     }
     

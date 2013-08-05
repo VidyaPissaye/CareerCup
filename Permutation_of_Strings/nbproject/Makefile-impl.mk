@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=permutation_of_strings
+PROJECTNAME=Permutation_of_Strings
 
 # Active Configuration
 DEFAULTCONF=Debug

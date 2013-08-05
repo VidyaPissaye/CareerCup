@@ -100,9 +100,9 @@ void longest_tower(stats array[], stats best_tower_sequences[][10], int index ) 
         }
 
         int length = sizeof(best_sequence)/sizeof(stats);
-        if(length != 0) {
-            best_sequence[index] = array[index];
-        }
+        //if(length != 0) {
+            best_sequence[length] = array[index];
+       // }
 
         for(int j = 0; j < (length+1); j++) {
             best_tower_sequences[index][j] = best_sequence[j];

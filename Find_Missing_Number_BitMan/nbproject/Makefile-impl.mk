@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=find_missing_number_bitman
+PROJECTNAME=Find_Missing_Number_BitMan
 
 # Active Configuration
 DEFAULTCONF=Debug

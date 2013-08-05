@@ -67,6 +67,8 @@ node* find_common_ancestor(node* root, node* node1, node* node2) {
     }
 }
 
+// Common ancestor with access to parent
+
 node* find_common_ancestor_parent(node* root, node* node1, node* node2) {
     bool success = search_node(node1, root);
     

@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=swap_even_odd_bitmap
+PROJECTNAME=Swap_even_odd_bitmap
 
 # Active Configuration
 DEFAULTCONF=Debug

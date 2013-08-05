@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=set_of_subsets_dp
+PROJECTNAME=Set_of_Subsets_DP
 
 # Active Configuration
 DEFAULTCONF=Debug

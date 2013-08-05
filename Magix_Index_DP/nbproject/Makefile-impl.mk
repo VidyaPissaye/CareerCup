@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=magix_index_dp
+PROJECTNAME=Magix_Index_DP
 
 # Active Configuration
 DEFAULTCONF=Debug

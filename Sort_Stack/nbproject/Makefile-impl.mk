@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=sort_stack
+PROJECTNAME=Sort_Stack
 
 # Active Configuration
 DEFAULTCONF=Debug

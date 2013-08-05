@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=nodes_at_depth_tree
+PROJECTNAME=Nodes_at_Depth_Tree
 
 # Active Configuration
 DEFAULTCONF=Debug
