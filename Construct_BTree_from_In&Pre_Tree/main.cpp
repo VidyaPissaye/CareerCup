@@ -14,6 +14,7 @@ using namespace std;
 /*
  *
  */
+
 struct TreeNode {
       int val;
       TreeNode *left;
@@ -21,34 +22,31 @@ struct TreeNode {
       TreeNode(int x) : val(x), left(NULL), right(NULL) {}
   };
 
-TreeNode *constructTree(vector<int> &preorder, vector<int> &inorder, int low, int high) {
-    if(low > high)
-        return NULL;
-
-    TreeNode *newnode = (TreeNode *)malloc(sizeof(TreeNode));
-    int newval = preorder.back();
-    preorder.pop_back();
-    newnode->val = newval;
-
-    if(low == high) {
-        newnode->left = NULL;
-        newnode->right = NULL;
-    }
-    else {
-
-        int mid = 0;
-        while (inorder[mid] != newval) {
-            mid++;
+TreeNode *constructTree(vector<int> &preorder, int &root_index, vector<int> &inorder, int low, int high) {
+    if(low <= high) {
+            TreeNode *root = (TreeNode*)malloc(sizeof(TreeNode));
+            root->val = preorder[root_index];
+            
+    
+            int i = low;
+            
+            while((inorder[i] != preorder[root_index]) && (i <= high)) {
+                i++;
+            }
+            
+            root_index++;
+            
+            root->left = constructTree(preorder, root_index, inorder, low, i-1);
+            root->right = constructTree(preorder, root_index, inorder, i+1, high);
+            return root;
         }
-        newnode->left = constructTree(preorder, inorder, low, mid - 1);
-        newnode->right = constructTree(preorder, inorder, mid + 1, high);
-    }
-
-    return newnode;
+        
+        return NULL;
 }
 
 TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
-        return(constructTree(preorder, inorder, 0, (inorder.size() - 1)));
+    int root_index = 0;
+    return(constructTree(preorder, root_index, inorder, 0, (inorder.size() - 1)));
 }
 
 void displayTree(TreeNode *root) {
@@ -72,11 +70,11 @@ int main(int argc, char** argv) {
         i++;
     }
 
-    i--;
+    i = 0;
 
-    while(i >= 0) {
+    while(i < 10) {
         preorder.push_back(preord[i]);
-        i--;
+        i++;
     }
 
     TreeNode *root = buildTree(preorder, inorder);

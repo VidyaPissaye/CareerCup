@@ -36,12 +36,34 @@ int staircase(int steps, int (&stairs)[max]) {
     return stairs[steps];
 }
 
+// Iterative solution
+
+int climbStairs(int n) {
+        
+    int prev1 = 1, prev2 = 1, prev3 = 2;
+    
+    if(n < 0)
+        return 0;
+    else if(n == 1)
+        return 1;
+
+    for (int i = 3; i <= n; i++) {
+        int temp = prev3;
+        prev3 += prev2 + prev1;
+        prev1 = prev2;
+        prev2 = temp;
+    }
+    return prev3;        
+}
+
 int main(int argc, char** argv) {
 
     int stair_array[max] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
     
     int possible_ways = staircase(5, stair_array);
     
-    cout << "Possible to climb the steps is " << possible_ways;
+    cout << "Possible to climb the steps is " << possible_ways << endl;
+    
+    cout << "Iterative" << climbStairs(5);
 }
 

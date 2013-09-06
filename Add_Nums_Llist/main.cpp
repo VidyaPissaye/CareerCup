@@ -65,6 +65,14 @@ llist* add_reverse(llist* num1, llist* num2) {
             num2 = num2->next;
     }
     
+    if((num1 == NULL) && (num2 == NULL) && (carry != 0)) {
+        llist *newnode = (llist*)malloc(sizeof(llist));
+        newnode->data = carry;
+        newnode->next = NULL;
+        ptr->next = newnode;
+        ptr = ptr->next;
+    }
+    
     return sum;
 }
 

@@ -88,6 +88,75 @@ int create_list_at_level(Tree* tree_node, llist* result[], int &length, int leve
     
 }
 
+vector<vector<int> > levelOrder(Tree *root) {
+        
+    vector<vector<int> > tree_arr;
+        levelTraverse(root, 0, tree_arr);
+        return tree_arr;
+        
+}
+    
+void levelTraverse(Tree *root, int level, vector<vector<int> > &array) {
+        
+    if(root != NULL) {
+        int length = array.size();
+
+        if(length == level) {
+            vector<int> level;
+            level.push_back(root->data);
+            array.push_back(level);
+        }
+        else {
+            array[level].push_back(root->data);
+        }
+            
+        levelTraverse(root->left, level+1, array);
+        levelTraverse(root->right, level+1, array);       
+    }        
+}
+
+// Non-recursive BFS
+
+void print_level_nodes(Tree* root) {
+        if(root != NULL) {
+            root->visited = true;
+            queue<Tree*> treequeue;
+            treequeue.push(root);
+            root->level = 0;
+            
+
+            int length = -1;
+            while(!treequeue.empty()) {
+                Tree *node = treequeue.front();
+                
+                
+             if(length < node.level) {    
+                    cout << "level" << node.level;
+                    length++;
+                    
+             }
+
+            cout << node->value;
+      
+                if(node->left->visited != true) {
+                    node->left->visited = true;
+                    node->left->level = node->level+1;
+                    cout << node->left->value;
+                    treequeue.push(node->left);
+                }
+                if(node->right->visited != true) {
+                    node->right->visited = true;
+                    cout << node->right->value;
+                    node->right->level = node->level+1;
+                    treequeue.push(node->right);
+                }
+                
+                
+                
+            }
+        }
+    }
+
 int main(int argc, char** argv) {
     
     llist* array_of_lists[max];

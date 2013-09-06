@@ -44,6 +44,39 @@ int is_balanced(Tree* root) {
     return -1;
 }
 
+// Alternate solution
+
+bool isBalanced(Tree *root) {
+        
+    int level = 0;
+    return(isBalTree(root, level));
+        
+}
+    
+bool isBalTree(Tree *root, int &level) {
+    if(root != NULL) {
+        level++;
+        int left_level = level;
+        int right_level = level;
+        int left_tree = isBalTree(root->left, left_level);
+        int right_tree = isBalTree(root->right, right_level);
+        if(left_tree != false && right_tree != false &&
+            (abs(left_level - right_level) <= 1)) {
+            if(left_level == right_level) {
+                level = left_level;
+
+            }
+            else 
+                 level = (left_level > right_level ? left_level : right_level);
+            return true;
+        }
+        else
+            return false;
+
+    }
+    return true;
+}
+
 Tree* insert_node(int data, Tree* root){
     
     Tree* node = (Tree*)malloc(sizeof(Tree));

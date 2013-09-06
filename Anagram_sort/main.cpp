@@ -8,6 +8,8 @@
 #include <cstdlib>
 #include <iostream>
 #include <string.h>
+#include <hash_map.h>
+#include <vector>
 
 using namespace std;
 
@@ -56,6 +58,37 @@ void sort_anagrams(string (&anagram_arr)[6]) {
         }
     }
 }
+
+// Alternate solution
+
+vector<string> anagrams(vector<string> &strs) {
+        
+       map<string, vector<string> > anagrams;
+       map<string, vector<string> >::iterator it;
+       vector<string>::iterator st;
+       
+       
+       for(st = strs.begin(); st != strs.end(); st++) {
+           string key = *st;
+           sort(key.begin(), key.end());
+           anagrams[key].push_back(*st);
+       }
+       
+       vector<string> anagram_strs;
+       
+       
+       for(it = anagrams.begin(); it != anagrams.end(); it++) {
+           if(it->second.size() > 1) {
+               for(st = it->second.begin(); st != it->second.end(); st++) {
+                    anagram_strs.push_back(*st);   
+               }
+                
+           }
+       }
+       
+       return anagram_strs;
+    }
+
 
 int main(int argc, char** argv) {
 

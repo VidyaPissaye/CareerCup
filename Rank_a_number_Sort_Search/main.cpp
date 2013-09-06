@@ -88,7 +88,7 @@ int main(int argc, char** argv) {
         root = track(root, array[i]);
     }
     
-    int num = 16;
+    int num = 4;
     int rank = 0;
     get_rank_of_number(root, num, rank);
     

@@ -8,6 +8,8 @@
 #include <cstdlib>
 #include <iostream>
 #include <vector>
+#include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -86,10 +88,10 @@ void n_pair_parenthesis(int n, vector<char*>& parenthesis) {
     }
 }
 
-void print_parenthesis(vector<char*> parenthesis) {
+void print_parenthesis(vector<string> parenthesis) {
     while(!parenthesis.empty()) {
-        char* string = parenthesis.back();
-        cout << string << "  ";
+        string str = parenthesis.back();
+        cout << str << "  ";
         parenthesis.pop_back();
     }
 }
@@ -97,18 +99,21 @@ void print_parenthesis(vector<char*> parenthesis) {
 void print_n_pair_parenthesis(int n) {
     vector<char*> parenthesis;
     n_pair_parenthesis(n, parenthesis);
-    print_parenthesis(parenthesis);
+   // print_parenthesis(parenthesis);
 }
 
 // Alternate method
 
-void add_parens(vector<char*> & parens, int left_parens, int right_parens, char* str, int count) {
+void add_parens(vector<string> & parens, int left_parens, int right_parens, char* str, int count) {
     if((left_parens >= 0) && (right_parens >= left_parens)) {
         if((left_parens == 0) && (right_parens == 0)) {
-            char* temp_str = new char[count];
+          /*  char* temp_str = new char[count];
             strcpy(temp_str, str);
             temp_str[strlen(str)] = '\0';
-            parens.push_back(temp_str);
+            parens.push_back(temp_str); */
+            std::stringstream ss;
+            ss << str;
+            parens.push_back(ss.str());
         }
         else {
             if(left_parens > 0) {
@@ -125,7 +130,7 @@ void add_parens(vector<char*> & parens, int left_parens, int right_parens, char*
 }
 
 void generate_parens(int n) {
-    vector<char*> parenthesis;
+    vector<string> parenthesis;
     char* str = new char[n*2];
     add_parens(parenthesis, n, n, str, 0);
     print_parenthesis(parenthesis);

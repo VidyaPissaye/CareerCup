@@ -22,40 +22,45 @@ using namespace std;
 
 ListNode* removeNthFromEnd(ListNode *head, int n) {
     
-    ListNode *current, *next, *ptr;
-    current = head;
-    
-    if((head->next == NULL) && (n==1)) {
-        head = NULL;
-    }
-    else{
-                
-        int x = 1, list_length = 1;
-        next = current;
-        ptr = current;
-        while (next->next != NULL){
-            next = next->next;
-            list_length++;
-            if(x!=n) {
-                x++;    
-            }
-            else {
-                current = ptr;
+    if(head != NULL) {
+            ListNode *ptr = head;
+            ListNode *delete_prev = head;
+            ListNode *delete_node = head;
+            int count = 1;
+            int list_length = 1;
+            
+            
+            while(ptr->next != NULL) {
+                if(count != n) {
+                    count++;
+                }
+                else{
+                    delete_prev = delete_node;
+                    delete_node = delete_node->next;
+                }
+                list_length++;
                 ptr = ptr->next;
             }
+            
+            if(list_length == n) {
+                if(head->next == NULL) {
+                    head = NULL;
+                }
+                else {
+                    head = head->next;
+                }
+                    
+            }
+            else {
+                delete_prev->next = delete_prev->next->next;    
+            }
+            
+            
+            delete delete_node;
+            
         }
-
-        if(list_length == n) {
-            ListNode *first_node = head;
-            head = head->next;
-            delete first_node;
-        }
-        else {
-            current->next = ptr->next;
-            delete ptr;
-        }
-    }    
-    return head;
+        
+        return head;
 }
 
 void display(ListNode *start) {
@@ -75,11 +80,12 @@ void display(ListNode *start) {
 int main(int argc, char** argv) {
     ListNode *head = NULL;
     
+    int elements[] = {3};
+    int size = sizeof(elements)/sizeof(int);
     int n = 0;
-    while(n<8) {
+    while(n < size) {
         ListNode *node = (ListNode*)malloc(sizeof(ListNode));
-        cout << "Enter the element to insert into list: ";
-        cin >> node->data;
+        node->data = elements[n];
         node->next = head;
         head = node;
         n++;

@@ -47,11 +47,36 @@ void matrix_zero(Mymatrix matrix) {
     }
 }
 
+// With Constant memory complexity
+
+void opt_matrix_zero(Mymatrix matrix) {
+        int row_v = 0, col_v = 0;
+        int row_size = rows;
+        int col_size = cols;
+        
+        for(int row = 0; row < row_size; ++row) {
+            for(int col = 0; col < col_size; ++col) {
+                if(matrix[row][col] == 0){
+                    row_v |= (1 << row);
+                    col_v |= (1 << col);
+                }
+            }
+        }
+        
+        for(int row = 0; row < row_size; ++row) {
+            for(int col = 0; col < col_size; ++col) {
+               if(((row_v & (1 << row)) != 0) || ((col_v & (1 << col)) != 0)) {
+                   matrix[row][col] = 0;
+               }
+            }
+        }
+}        
+
 int main(int argc, char** argv) {
     
     Mymatrix matrix = {{1,2,3,4,5}, {5,0,6,7,8}, {8,9,0,11,12}, {10,12,13,14,15}};
     
-    matrix_zero(matrix);
+    opt_matrix_zero(matrix);
     
     for(int i=0; i<4; i++) {
         for(int j=0; j<5; j++){

@@ -66,6 +66,25 @@ int maxArea(vector<int> &height) {
     return max_area;
 }
     
+// Alternate method
+int maxAreaAlt(vector<int> &height) {
+    int i = 0;
+    
+    int j = size - 1;
+    int res = 0;
+    while(i < j)
+    {
+        int temp = min(height[i], height[j]) * (j - i);
+        if(temp > res)
+            res = temp;
+        if(height[i] <= height[j])
+            i++;
+        else
+            j--;
+    }
+    return res;
+}
+
 int main(int argc, char** argv) {
     int height_array[] = {1, 2, 4, 3};
     
@@ -77,7 +96,9 @@ int main(int argc, char** argv) {
         i++;
     }
 
-    cout << maxArea(height);
+    cout << maxArea(height) << endl;
+    
+    cout << "Alternate: " << maxAreaAlt(height);
     
 }
 

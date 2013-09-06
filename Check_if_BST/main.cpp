@@ -24,7 +24,7 @@ struct Tree{
 bool CheckBST(Tree* root, int min, int max) {
     if(root == NULL) return true;
     
-    if((root->value < min) || (root->value >= max)) {
+    if((root->value <= min) || (root->value >= max)) {
         return false;
     }
     

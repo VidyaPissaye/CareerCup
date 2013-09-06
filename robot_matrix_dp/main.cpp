@@ -78,7 +78,7 @@ int main(int argc, char** argv) {
     
     vector<point*> paths;
     
-    int moves = robot_move_reverse(5, 5, paths);
+    int moves = robot_move_reverse(6, 5, paths);
     cout << "The robot can reach (X, Y) is " << paths.size();
     
 }
