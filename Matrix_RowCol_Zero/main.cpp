@@ -47,7 +47,7 @@ void matrix_zero(Mymatrix matrix) {
     }
 }
 
-// With Constant memory complexity
+// With Constant space complexity
 
 void opt_matrix_zero(Mymatrix matrix) {
         int row_v = 0, col_v = 0;

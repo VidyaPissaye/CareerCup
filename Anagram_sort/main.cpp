@@ -10,6 +10,7 @@
 #include <string.h>
 #include <hash_map.h>
 #include <vector>
+#include <tr1/unordered_map>
 
 using namespace std;
 
@@ -63,8 +64,9 @@ void sort_anagrams(string (&anagram_arr)[6]) {
 
 vector<string> anagrams(vector<string> &strs) {
         
-       map<string, vector<string> > anagrams;
-       map<string, vector<string> >::iterator it;
+    tr1::unordered_map<string, vector<string> > hash_map;
+       hash_map<string, vector<string> > anagrams;
+       hash_map<string, vector<string> >::iterator it;
        vector<string>::iterator st;
        
        

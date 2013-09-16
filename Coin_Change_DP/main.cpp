@@ -15,7 +15,7 @@ using namespace std;
  *  Dime (10 cents), Nickel (5 cents) and Cent (1 cent) denomination coins.
  */
 
-int coin_changer(int n, int denom){
+int coin_changer(int n, int denom) {
     
     int next_denom, ways = 0;
     

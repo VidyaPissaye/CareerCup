@@ -19,6 +19,7 @@ using namespace std;
 
 struct Tree{
     int data;
+    int level;
     Tree* left;
     Tree* right;
 };
@@ -88,14 +89,8 @@ int create_list_at_level(Tree* tree_node, llist* result[], int &length, int leve
     
 }
 
-vector<vector<int> > levelOrder(Tree *root) {
-        
-    vector<vector<int> > tree_arr;
-        levelTraverse(root, 0, tree_arr);
-        return tree_arr;
-        
-}
-    
+// Given a binary tree, return the level order traversal of its nodes' values. 
+// (ie, from left to right, level by level).  
 void levelTraverse(Tree *root, int level, vector<vector<int> > &array) {
         
     if(root != NULL) {
@@ -115,47 +110,46 @@ void levelTraverse(Tree *root, int level, vector<vector<int> > &array) {
     }        
 }
 
+
+vector<vector<int> > levelOrder(Tree *root) {
+        
+    vector<vector<int> > tree_arr;
+        levelTraverse(root, 0, tree_arr);
+        return tree_arr;
+        
+}
+
 // Non-recursive BFS
 
 void print_level_nodes(Tree* root) {
-        if(root != NULL) {
-            root->visited = true;
-            queue<Tree*> treequeue;
-            treequeue.push(root);
-            root->level = 0;
-            
+    if(root != NULL) {
+        queue<Tree*> treequeue;
+        treequeue.push(root);
+        root->level = 0;
 
-            int length = -1;
-            while(!treequeue.empty()) {
-                Tree *node = treequeue.front();
+        int length = 0;
+        while(!treequeue.empty()) {
+            Tree *node = treequeue.front();
                 
-                
-             if(length < node.level) {    
-                    cout << "level" << node.level;
-                    length++;
-                    
-             }
-
-            cout << node->value;
-      
-                if(node->left->visited != true) {
-                    node->left->visited = true;
-                    node->left->level = node->level+1;
-                    cout << node->left->value;
-                    treequeue.push(node->left);
-                }
-                if(node->right->visited != true) {
-                    node->right->visited = true;
-                    cout << node->right->value;
-                    node->right->level = node->level+1;
-                    treequeue.push(node->right);
-                }
-                
-                
-                
+            if(length == node.level) {    
+                cout << "level" << node.level;
+                length++;   
             }
+
+            cout << node->data;
+      
+            if(node->left != NULL) {
+                node->left->level = node->level+1;
+                treequeue.push(node->left);
+            }
+            
+            if(node->right  != NULL) {
+                node->right->level = node->level+1;
+                treequeue.push(node->right);
+            }       
         }
     }
+}
 
 int main(int argc, char** argv) {
     

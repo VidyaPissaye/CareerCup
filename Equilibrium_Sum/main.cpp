@@ -18,13 +18,13 @@ using namespace std;
  */
 
 int find_equi(vector<int> array) {
-    int right_sum = 0;
+    long long right_sum = 0;
     
     for(int i = 0; i < array.size(); i++) {
         right_sum += array[i];
     }
     
-    int left_sum = 0;
+    long long left_sum = 0;
     
     for(int j = 0; j < array.size(); j++) {
         
@@ -35,6 +35,8 @@ int find_equi(vector<int> array) {
        
         left_sum += array[j];
     }
+    
+    return -1;
     
 }
 

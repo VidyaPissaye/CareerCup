@@ -27,7 +27,7 @@ bool robot_move_reverse(int x, int y, vector<point*> &path) {
     p->x = x;
     p->y = y;
     
-    path.push_back(p);
+   // path.push_back(p);
     
     if(x == 0 && y == 0) {
         return true;
